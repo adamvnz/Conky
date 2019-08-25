@@ -99,9 +99,11 @@ conky.text = [[
 ${font Santana:size=14}MAIN PROCESSES  ${font}
 ${font Santana:size=12}${stippled_hr}${font}
 
-${if_match ${cpu cpu0} > 80}${color9}${else}${if_match ${cpu cpu0} > 50}${color8}${else}${if_match ${cpu cpu0} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu0 10,140}${color1} Cpu ${alignr}${color8}${cpu cpu0}%
+${if_match ${cpu cpu0} > 80}${color9}${else}${if_match ${cpu cpu0} > 50}${color8}${else}${if_match ${cpu cpu0} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu0 10,140}${color1} Cpu 0 ${alignr}${color8}${cpu cpu0}%
 ${if_match ${cpu cpu1} > 80}${color9}${else}${if_match ${cpu cpu1} > 50}${color8}${else}${if_match ${cpu cpu1} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu1 10,140}${color1} Cpu 1 ${alignr}${color8}${cpu cpu1}%
 ${if_match ${cpu cpu2} > 80}${color9}${else}${if_match ${cpu cpu2} > 50}${color8}${else}${if_match ${cpu cpu2} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu2 10,140}${color1} Cpu 2 ${alignr}${color8}${cpu cpu2}%
+${if_match ${cpu cpu3} > 80}${color9}${else}${if_match ${cpu cpu3} > 50}${color8}${else}${if_match ${cpu cpu3} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu3 10,140}${color1} Cpu 3 ${alignr}${color8}${cpu cpu3}%
+${if_match ${cpu cpu4} > 80}${color9}${else}${if_match ${cpu cpu4} > 50}${color8}${else}${if_match ${cpu cpu4} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu4 10,140}${color1} Cpu 4 ${alignr}${color8}${cpu cpu4}%
 ${if_match ${memperc} > 80}${color9}${else}${if_match ${memperc} > 50}${color8}${else}${if_match ${memperc} > 20}${color7}${else}${color7}${endif}${endif}${endif}${membar 10,140}${color1} Mem ${alignr}${color8}${mem} ${memperc}%
 ${if_match ${swapperc} > 80}${color9}${else}${if_match ${swapperc} > 50}${color8}${else}${if_match ${swapperc} > 20}${color7}${else}${color7}${endif}${endif}${endif}${swapbar 10,140}${color1} Swap ${alignr}${color8}${swapperc}%
 ${if_existing /proc/self/root/sys/devices/platform/PNP0C0A:00/firmware_node/power_supply/BAT0/capacity}${if_match ${battery_percent BAT0} > 70}${color7}${else}${if_match ${battery_percent BAT0} > 30}${color8}${else}${color9}${endif}${endif}${endif}${battery_bar 10,140}${color1} Battery ${color8}${alignr}${battery_percent BAT0}%
@@ -109,8 +111,5 @@ ${if_existing /proc/self/root/sys/devices/platform/PNP0C0A:00/firmware_node/powe
 ${color1}Total Processes${alignr}${color8}${processes}
 ${color1}Running processes${alignr}${color8}${offset -9}${running_processes}
 ${color1}Load${alignr}${color8}${loadavg 1}
-${color1}${hr 1}
-${color1}CPU ${color1}${execi 6000 cat /proc/cpuinfo | grep -i 'Model name' -m 1 | cut -c14-35}
-#
 ####################################################################################################
 ]]
