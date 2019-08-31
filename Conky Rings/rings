@@ -98,7 +98,7 @@ conky.config = {
 };
 
 conky.text = [[
-${goto 100}${font Santana:size=12}  Root   ${fs_used /}/${fs_size /}                Home   ${fs_used /home}/${fs_size /home}                ${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}$font
+${goto 100}${font Santana:size=12}  Root   ${fs_used /}/${fs_size /}                Home   ${fs_used /home}/${fs_size /home}                ${execpi 3600 checkupdates | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'} #${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}$font
 #####
 ${voffset 105}${goto 123}${font Santana:size=24}${time %H:%M}${voffset -10}${font Santana:size=10}${font}
 ${voffset -10}${goto 268}${hr 2}${font}
