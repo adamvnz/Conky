@@ -53,7 +53,7 @@ Amits modifications to the original theme:
 
 My Changes 
 	- Updated the conky scripts
-	- Added NVIDIA which will only work if present
+	- Added NVIDIA which will only show if NVIDIA card present and active - Come and go on bumblebee active laptops
 	- Network up next to the CPU graph which will change between ethernet and wifi automaticly 
 	- Added some colour
 	- Re-added the battery percentage
