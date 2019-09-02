@@ -20,8 +20,8 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 260,
-	gap_y = 422,
+	gap_x = 30,
+	gap_y = 620,
 	minimum_height = 160,
 	minimum_width = 200,
 	maximum_width = 290,
@@ -77,16 +77,16 @@ conky.config = {
 	--Colours
 
 	default_color = '#FFFFFF',  				-- default color and border color
-	color1 = '#FFFFFF',
-	color2 = '#AAAAAA',
-	color3 = '#1874cd',
-	color4 = '#BDBDBD',
-	color5 = '#CCCCCC',
-	color6 = '#aa0000',
+	color1 = '#FFFFFF',   --White
+	color2 = '#000000',   --Black
+	color3 = '#00ffff',   --Cyan
+	color4 = '#ff00ff',   --Magenta
+	color5 = '#FFFF00',   --Yellow
+	color6 = '#ff0000',   --Red
 
 	--Signal Colours
-	color7 = '#1F7411',  --green
-	color8 = '#1874cd',  --orange
+	color7 = '#1F7411',  --Dark lime green
+	color8 = '#1874cd',  --Strong blue
 	color9 = '#F1544B',  --firebrick
 
 

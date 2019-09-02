@@ -20,8 +20,8 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 290,
-	gap_y = 765,
+	gap_x = 30,
+	gap_y = 850,
 	minimum_height = 160,
 	minimum_width = 200,
 	maximum_width = 290,
@@ -77,17 +77,6 @@ conky.config = {
 	--Colours
 
 	default_color = '#FFFFFF',  				-- default color and border color
-	color1 = '#FFFFFF',
-	color2 = '#AAAAAA',
-	color3 = '#1874cd',
-	color4 = '#BDBDBD',
-	color5 = '#CCCCCC',
-	color6 = '#aa0000',
-
-	--Signal Colours
-	color7 = '#1F7411',  --green
-	color8 = '#1874cd',  --orange
-	color9 = '#F1544B',  --firebrick
 
 
 	--Lua
@@ -100,5 +89,5 @@ ${font Santana:size=14}${alignc}TO-DO LIST${alignr}${font Santana:size=12}(${lin
 ${stippled_hr}
 ${voffset 10}${execp ~/.Conky/viewnotes.sh}
 
-# ${stippled_hr 1}
+${stippled_hr 1}
 ]]

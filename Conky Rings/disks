@@ -20,7 +20,7 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 30,
+	gap_x = 550,
 	gap_y = 422,
 	minimum_height = 160,
 	minimum_width = 200,
@@ -96,13 +96,28 @@ conky.config = {
 };
 
 conky.text = [[
-${font Santana:size=14}RAM ${alignr}$memperc%${font}
+${font Santana:size=14}Drives ${font} 
 ${font Santana:size=12}${stippled_hr}${font}
 
-${top_mem name 1} ${alignr}${top_mem mem 1}
-${top_mem name 2} ${alignr}${top_mem mem 2}
-${top_mem name 3} ${alignr}${top_mem mem 3}
-${top_mem name 4} ${alignr}${top_mem mem 4}
-
-
+####################################################################################################
+# DISKS
+####################################################################################################
+#
+##### Root
+ROOT${alignc -20}${fs_used /} / ${fs_size /}$alignr ${fs_type /}
+${color8}${fs_bar /}
+##### home
+${color1}HOME${alignc -20}${fs_used /home} / ${fs_size /home}$alignr ${fs_type /home}
+${color8}${fs_bar /home}
+##### store
+${color1}STORE${alignc -20}${fs_used /media/adam/storage} / ${fs_size /media/adam/storage}$alignr ${fs_type /media/adam/storage}
+${color8}${fs_bar /media/adam/storage}
+#
+# disk graphs
+#
+${color8}${diskiograph_read nvme0n1 20,135 ffffff F1544B -t} ${alignr}${diskiograph_write nvme0n1 20,140 ffffff F1544B -t}
+${voffset -5}${color1}Reads: ${color8}${diskio_read nvme0n1} ${goto 158}${color1}Writes: ${color8}${diskio_write nvme0n1}
+${color8}${diskiograph_read sda 20,135 ffffff F1544B -t} ${alignr}${diskiograph_write sda 20,140 ffffff F1544B -t}
+${voffset -5}${color1}Reads: ${color8}${diskio_read sda} ${goto 158}${color1}Writes: ${color8}${diskio_write sda}
+#
 ]]

@@ -77,16 +77,16 @@ conky.config = {
 	--Colours
 
 	default_color = '#FFFFFF',  				-- default color and border color
-	color1 = '#FFFFFF',
-	color2 = '#AAAAAA',
-	color3 = '#1874cd',
-	color4 = '#BDBDBD',
-	color5 = '#CCCCCC',
-	color6 = '#aa0000',
+	color1 = '#FFFFFF',   --White
+	color2 = '#000000',   --Black
+	color3 = '#00ffff',   --Cyan
+	color4 = '#ff00ff',   --Magenta
+	color5 = '#FFFF00',   --Yellow
+	color6 = '#ff0000',   --Red
 
 	--Signal Colours
-	color7 = '#1F7411',  --green
-	color8 = '#1874cd',  --orange
+	color7 = '#1F7411',  --Dark lime green
+	color8 = '#1874cd',  --Strong blue
 	color9 = '#F1544B',  --firebrick
 
 
@@ -100,11 +100,25 @@ conky.config = {
 conky.text = [[
 ${goto 100}${font Santana:size=12}  Root   ${fs_used /}/${fs_size /}                Home   ${fs_used /home}/${fs_size /home}                ${execpi 3600 checkupdates | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'} #${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}$font
 #####
-${voffset 105}${goto 123}${font Santana:size=24}${time %H:%M}${voffset -10}${font Santana:size=10}${font}
-${voffset -10}${goto 268}${hr 2}${font}
+${voffset 125}${goto 130}${font Santana:size=24}${time %H:%M}${voffset -10}${font Santana:size=10}${font}
+${voffset -0}${goto 268}${hr 2}${font}
 ${font Santana:size=14}${voffset -100}${goto 300}BATTERY   ${battery BAT0}  
 ${font Santana:size=14}${goto 300}AC adapter: $acpiacadapter
-${voffset -6}${goto 278}${cpugraph 50,380 1F7411 F1544B -t} ${voffset -18} #${alignr}yy ${execi 60 ~/.Conky/gmailnotify.sh}xx
-${voffset 80}${goto 300}${time %A, %d %B %Y}
+${voffset 5}${goto 278}${cpugraph 50,380 1F7411 F1544B -t} ${voffset -18}
+###########################################################
+${if_existing /proc/net/route en}#${color1}${alignr}Ethernet
+${voffset -5}${goto 678}${totalup enp2s0} ${upspeed enp2s0}
+${voffset 10}${goto 678}${totaldown enp2s0} ${downspeed enp2s0}
+${voffset -55}${goto 790}${upspeedgraph enp2s0 25,250 4B1B0C FF5C2B 10000000 -l -t}${voffset -10}${alignr} Up
+${voffset 12}${goto 790}${downspeedgraph enp2s0 -25,250 324D23 77B753 10000000 -l -t}${voffset -5}${alignr} Down
+###########################################################
+${else}#${color1}${alignr}Wireless
+${voffset -5}${goto 678}${totalup wlp3s0} - ${upspeed wlp3s0}
+${voffset 10}${goto 678}${totaldown wlp3s0} - ${downspeed wlp3s0}
+${voffset -55}${goto 790}${upspeedgraph wlp3s0 25,250 4B1B0C FF5C2B 10000000 -l -t}${voffset -10}${alignr} Up
+${voffset 12}${goto 790}${downspeedgraph wlp3s0 -25,250 324D23 77B753 10000000 -l -t}${voffset -5}${alignr} Down
+${endif}\
+###########################################################
+${voffset 60}${goto 300}${time %A, %d %B %Y}
 ${color1}${goto 300}CPU ${color1}${execi 6000 cat /proc/cpuinfo | grep -i 'Model name' -m 1 | cut -c14-35}${font}
 ]]

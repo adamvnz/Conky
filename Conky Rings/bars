@@ -20,7 +20,7 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 30,
+	gap_x = 260,
 	gap_y = 620,
 	minimum_height = 160,
 	minimum_width = 200,
@@ -77,16 +77,16 @@ conky.config = {
 	--Colours
 
 	default_color = '#FFFFFF',  				-- default color and border color
-	color1 = '#FFFFFF',
-	color2 = '#AAAAAA',
-	color3 = '#1874cd',
-	color4 = '#BDBDBD',
-	color5 = '#CCCCCC',
-	color6 = '#aa0000',
+	color1 = '#FFFFFF',   --White
+	color2 = '#000000',   --Black
+	color3 = '#00ffff',   --Cyan
+	color4 = '#ff00ff',   --Magenta
+	color5 = '#FFFF00',   --Yellow
+	color6 = '#ff0000',   --Red
 
 	--Signal Colours
-	color7 = '#1F7411',  --green
-	color8 = '#1874cd',  --orange
+	color7 = '#1F7411',  --Dark lime green
+	color8 = '#1874cd',  --Strong blue
 	color9 = '#F1544B',  --firebrick
 
 
@@ -99,17 +99,21 @@ conky.text = [[
 ${font Santana:size=14}MAIN PROCESSES  ${font}
 ${font Santana:size=12}${stippled_hr}${font}
 
-${if_match ${cpu cpu0} > 80}${color9}${else}${if_match ${cpu cpu0} > 50}${color8}${else}${if_match ${cpu cpu0} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu0 10,140}${color1} Cpu 0 ${alignr}${color8}${cpu cpu0}%
+#${if_match ${cpu cpu0} > 80}${color9}${else}${if_match ${cpu cpu0} > 50}${color8}${else}${if_match ${cpu cpu0} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu0 10,140}${color1} Cpu 0 ${alignr}${color8}${cpu cpu0}%
 ${if_match ${cpu cpu1} > 80}${color9}${else}${if_match ${cpu cpu1} > 50}${color8}${else}${if_match ${cpu cpu1} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu1 10,140}${color1} Cpu 1 ${alignr}${color8}${cpu cpu1}%
 ${if_match ${cpu cpu2} > 80}${color9}${else}${if_match ${cpu cpu2} > 50}${color8}${else}${if_match ${cpu cpu2} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu2 10,140}${color1} Cpu 2 ${alignr}${color8}${cpu cpu2}%
 ${if_match ${cpu cpu3} > 80}${color9}${else}${if_match ${cpu cpu3} > 50}${color8}${else}${if_match ${cpu cpu3} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu3 10,140}${color1} Cpu 3 ${alignr}${color8}${cpu cpu3}%
 ${if_match ${cpu cpu4} > 80}${color9}${else}${if_match ${cpu cpu4} > 50}${color8}${else}${if_match ${cpu cpu4} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu4 10,140}${color1} Cpu 4 ${alignr}${color8}${cpu cpu4}%
-${if_match ${memperc} > 80}${color9}${else}${if_match ${memperc} > 50}${color8}${else}${if_match ${memperc} > 20}${color7}${else}${color7}${endif}${endif}${endif}${membar 10,140}${color1} Mem ${alignr}${color8}${mem} ${memperc}%
+${if_match ${cpu cpu5} > 80}${color9}${else}${if_match ${cpu cpu5} > 50}${color8}${else}${if_match ${cpu cpu5} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu5 10,140}${color1} Cpu 5 ${alignr}${color8}${cpu cpu5}%
+${if_match ${cpu cpu6} > 80}${color9}${else}${if_match ${cpu cpu6} > 50}${color8}${else}${if_match ${cpu cpu6} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu6 10,140}${color1} Cpu 6 ${alignr}${color8}${cpu cpu6}%
+${if_match ${cpu cpu7} > 80}${color9}${else}${if_match ${cpu cpu7} > 50}${color8}${else}${if_match ${cpu cpu7} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu7 10,140}${color1} Cpu 7 ${alignr}${color8}${cpu cpu7}%
+${if_match ${cpu cpu8} > 80}${color9}${else}${if_match ${cpu cpu8} > 50}${color8}${else}${if_match ${cpu cpu8} > 20}${color7}${else}${color7}${endif}${endif}${endif}${cpubar cpu8 10,140}${color1} Cpu 8 ${alignr}${color8}${cpu cpu8}%
+${if_match ${memperc} > 80}${color9}${else}${if_match ${memperc} > 50}${color8}${else}${if_match ${memperc} > 20}${color5}${else}${color5}${endif}${endif}${endif}${membar 10,140}${color1} Mem ${alignr}${color8}${mem} ${memperc}%
 ${if_match ${swapperc} > 80}${color9}${else}${if_match ${swapperc} > 50}${color8}${else}${if_match ${swapperc} > 20}${color7}${else}${color7}${endif}${endif}${endif}${swapbar 10,140}${color1} Swap ${alignr}${color8}${swapperc}%
 ${if_existing /proc/self/root/sys/devices/platform/PNP0C0A:00/firmware_node/power_supply/BAT0/capacity}${if_match ${battery_percent BAT0} > 70}${color7}${else}${if_match ${battery_percent BAT0} > 30}${color8}${else}${color9}${endif}${endif}${endif}${battery_bar 10,140}${color1} Battery ${color8}${alignr}${battery_percent BAT0}%
 ####################################################################################################
-${color1}Total Processes${alignr}${color8}${processes}
-${color1}Running processes${alignr}${color8}${offset -9}${running_processes}
-${color1}Load${alignr}${color8}${loadavg 1}
+#${color1}Total Processes${alignr}${color8}${processes}
+#${color1}Running processes${alignr}${color8}${offset -9}${running_processes}
+#${color1}Load${alignr}${color8}${loadavg 1}
 ####################################################################################################
 ]]
