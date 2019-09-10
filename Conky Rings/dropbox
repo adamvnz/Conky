@@ -20,11 +20,11 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 376,
-	gap_y = 262,
+	gap_x = 650,
+	gap_y = 100,
 	minimum_height = 160,
-	minimum_width = 155,
-	maximum_width = 200,
+	minimum_width = 200,
+	maximum_width = 290,
 
 	--Graphical
 
@@ -49,7 +49,7 @@ conky.config = {
 
 	extra_newline = false,
 	format_human_readable = true,
-	font = 'Santana:size=11:oblique',
+	font = 'Santana:size=14:oblique',
 	max_text_width = 0,
 	max_user_text = 16384,
 	override_utf8_locale = true,
@@ -93,21 +93,20 @@ conky.config = {
 	--Lua
 
 
+
 };
 
+
 conky.text = [[
-${font Santana:size=14}CPU ${alignr}$cpu%${font}
-#${font Santana:size=12}${hr 2}${font}
-
-Load: ${alignr}${loadavg 1}
-Processes: ${alignr}${running_processes}/${processes}
-
-${top name 1} ${alignr}${top cpu 1}
-${top name 2} ${alignr}${top cpu 2}
-${top name 3} ${alignr}${top cpu 3}
-${top name 4} ${alignr}${top cpu 4}
-${top name 5} ${alignr}${top cpu 5}
-${top name 6} ${alignr}${top cpu 6}
-${top name 7} ${alignr}${top cpu 7}
-${top name 8} ${alignr}${top cpu 8}
+####################################################################################################
+# DROPBOX
+####################################################################################################
+#
+#${voffset -10}${color8}${hr 1}
+${if_running dropbox}\
+${font}${color1}Dropbox Status:
+${color1}${execi 3 python2 ~/.Conky/dropbox.py status}\
+${else}\
+${alignr}${color8} Offline\
+${endif}
 ]]

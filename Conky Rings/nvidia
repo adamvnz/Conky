@@ -20,8 +20,8 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 260,
-	gap_y = 422,
+	gap_x = 60,
+	gap_y = 450,
 	minimum_height = 160,
 	minimum_width = 200,
 	maximum_width = 290,

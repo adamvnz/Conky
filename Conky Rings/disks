@@ -20,8 +20,8 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 550,
-	gap_y = 422,
+	gap_x = 60,
+	gap_y = 600,
 	minimum_height = 160,
 	minimum_width = 200,
 	maximum_width = 290,
@@ -110,8 +110,8 @@ ${color8}${fs_bar /}
 ${color1}HOME${alignc -20}${fs_used /home} / ${fs_size /home}$alignr ${fs_type /home}
 ${color8}${fs_bar /home}
 ##### store
-${color1}STORE${alignc -20}${fs_used /media/adam/storage} / ${fs_size /media/adam/storage}$alignr ${fs_type /media/adam/storage}
-${color8}${fs_bar /media/adam/storage}
+${color1}STORE${alignc -20}${fs_used /home/adam/Store} / ${fs_size /home/adam/Store}$alignr ${fs_type /home/adam/Store}
+${color8}${fs_bar /home/adam/Store}
 #
 # disk graphs
 #

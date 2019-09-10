@@ -20,10 +20,10 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 30,
-	gap_y = 422,
+	gap_x = 135,
+	gap_y = 345,
 	minimum_height = 160,
-	minimum_width = 200,
+	minimum_width = 155,
 	maximum_width = 290,
 
 	--Graphical
@@ -97,12 +97,12 @@ conky.config = {
 
 conky.text = [[
 ${font Santana:size=14}RAM ${alignr}$memperc%${font}
-${font Santana:size=12}${stippled_hr}${font}
+#${font Santana:size=12}${stippled_hr}${font}
 
 ${top_mem name 1} ${alignr}${top_mem mem 1}
 ${top_mem name 2} ${alignr}${top_mem mem 2}
 ${top_mem name 3} ${alignr}${top_mem mem 3}
 ${top_mem name 4} ${alignr}${top_mem mem 4}
-
+${top_mem name 5} ${alignr}${top_mem mem 5}
 
 ]]

@@ -8,5 +8,5 @@ sleep 1
 conky -c ~/.Conky/mem &
 conky -c ~/.Conky/disks &
 conky -c ~/.Conky/nvidia &
-conky -c ~/.Conky/notes &
 conky -c ~/.Conky/bars &
+conky -c ~/.Conky/dropbox &
