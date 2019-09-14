@@ -1,0 +1,133 @@
+conky.config = {
+
+	--Various settings
+
+	background = false, 							-- forked to background
+	cpu_avg_samples = 2,
+	diskio_avg_samples = 10,
+	double_buffer = true,
+	if_up_strictness = 'address',
+	net_avg_samples = 2,
+	no_buffers = true,
+	temperature_unit = 'celsius',
+	text_buffer_size = 2048,
+	update_interval = 1,
+	imlib_cache_size = 0,                       --spotify cover
+
+
+	--Placement
+
+	alignment = 'top_left',
+	--Arch Duoscreen
+	--gap_x = -1910,
+	gap_x = 96,
+	gap_y = 60,
+	minimum_height = 520,
+	minimum_width = 1080,
+	maximum_width = 1080,
+
+	--Graphical
+
+	border_inner_margin = 10, 					-- margin between border and text
+	border_outer_margin = 1, 					-- margin between border and edge of window
+	border_width = 0, 							-- border width in pixels
+	default_bar_width = 280,
+	default_bar_height = 10,
+	default_gauge_height = 25,
+	default_gauge_width =40,
+	default_graph_height = 40,
+	default_graph_width = 153,
+	default_shade_color = '#000000',
+	default_outline_color = '#000000',
+	draw_borders = false,						--draw borders around text
+	draw_graph_borders = false,
+	draw_shades = false,
+	draw_outline = false,
+	stippled_borders = 0,
+
+	--Textual
+
+	extra_newline = false,
+	format_human_readable = true,
+	font = 'Santana:size=10:oblique',
+	max_text_width = 0,
+	max_user_text = 16384,
+	override_utf8_locale = true,
+	short_units = true,
+	top_name_width = 30,
+	top_name_verbose = false,
+	uppercase = false,
+	use_spacer = 'none',
+	use_xft = true,
+	xftalpha = 1,
+
+	--Windows
+
+	own_window = true,
+	own_window_argb_value = 150,
+	own_window_argb_visual = true,
+	own_window_class = 'Conky',
+	own_window_colour = '#000000',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_transparent = true,
+	own_window_title = 'system_conky',
+	own_window_type = 'normal',-- # options are: normal/override/dock/desktop/panel
+
+
+	--Colours
+
+	default_color = '#FFFFFF',  				-- default color and border color
+	color1 = '#FFFFFF',   --White
+	color2 = '#000000',   --Black
+	color3 = '#00ffff',   --Cyan
+	color4 = '#ff00ff',   --Magenta
+	color5 = '#FFFF00',   --Yellow
+	color6 = '#ff0000',   --Red
+
+	--Signal Colours
+	color7 = '#1F7411',  --Dark lime green
+	color8 = '#1874cd',  --Strong blue
+	color9 = '#F1544B',  --firebrick
+
+
+	--Lua
+
+	lua_load = '~/.Conky/clock_rings.lua',
+        lua_draw_hook_pre = 'clock_rings',
+
+
+
+};
+
+conky.text = [[
+${voffset -5}${goto 20}${font Santana:size=14}  Root   ${fs_used /}/${fs_size /}${goto 300}Home   ${fs_used /home}/${fs_size /home}${goto 500}${execpi 3600 checkupdates+aur | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}${alignr}Gmail ${execi 60 ~/.Conky/gmail.sh} - Techie email ${execi 300 ~/.Conky/imap.pl}  #${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}
+#####
+${voffset 130}${goto 130}${font Santana:size=24}${time %H:%M}${voffset -10}${font Santana:size=10}${font}
+${voffset -0}${goto 275}${hr 2}${font}
+${font Santana:size=14}${voffset -110}${goto 360}BATTERY   ${battery BAT0}  
+${font Santana:size=14}${goto 360}AC adapter: $acpiacadapter
+##########################################################
+#CPU Graph
+#
+${voffset 17}${goto 278}${cpugraph 50,380 1F7411 F1544B -t} ${voffset -18}
+###########################################################
+#Ethernet
+#
+${if_existing /proc/net/route en}#${color1}${alignr}Ethernet
+${voffset -5}${goto 678}${totalup enp2s0} ${upspeed enp2s0}
+${voffset 10}${goto 678}${totaldown enp2s0} ${downspeed enp2s0}
+${voffset -55}${goto 790}${upspeedgraph enp2s0 25,250 4B1B0C FF5C2B 10000000 -l -t}${voffset -10}${alignr} Up
+${voffset 12}${goto 790}${downspeedgraph enp2s0 -25,250 324D23 77B753 10000000 -l -t}${voffset -5}${alignr} Down
+###########################################################
+#WiFi
+#
+${else}#${color1}${alignr}Wireless
+${voffset -5}${goto 678}${totalup wlp3s0} - ${upspeed wlp3s0}
+${voffset 8}${goto 678}${totaldown wlp3s0} - ${downspeed wlp3s0}
+${voffset -55}${goto 790}${upspeedgraph wlp3s0 25,250 4B1B0C FF5C2B 10000000 -l -t}${voffset -10}${alignr} Up
+${voffset 12}${goto 790}${downspeedgraph wlp3s0 -25,250 324D23 77B753 10000000 -l -t}${voffset -5}${alignr} Down
+${endif}\
+###########################################################
+${voffset -15}${goto 300}${time %A, %d %B %Y}
+${color1}${goto 300}CPU ${color1}${execi 6000 cat /proc/cpuinfo | grep -i 'Model name' -m 1 | cut -c14-35}${font}
+]]
