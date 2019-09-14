@@ -1,7 +1,7 @@
 #!/bin/bash
 
-USERNAME='adamvnz1'
-PASSWORD='ses4sc90;'
+USERNAME='username'
+PASSWORD='password'
 
 MAIL=`wget --secure-protocol=TLSv1 --timeout=3 -t 1 -q -O - https://${USERNAME}:${PASSWORD}@mail.google.com/mail/feed/atom --no-check-certificate | grep "fullcount" | sed -e "s/.*<fullcount>//;s/<\/fullcount>.*//" 2>/dev/null`
 
