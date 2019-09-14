@@ -20,7 +20,7 @@ conky.config = {
 	alignment = 'top_left',
 	--Arch Duoscreen
 	--gap_x = -1910,
-	gap_x = 100,
+	gap_x = 96,
 	gap_y = 60,
 	minimum_height = 520,
 	minimum_width = 1080,
@@ -95,13 +95,15 @@ conky.config = {
 	lua_load = '~/.Conky/clock_rings.lua',
         lua_draw_hook_pre = 'clock_rings',
 
+
+
 };
 
 conky.text = [[
-${voffset -5}${goto 20}${font Santana:size=14}  Root   ${fs_used /}/${fs_size /}${goto 300}Home   ${fs_used /home}/${fs_size /home}${goto 500}${execpi 3600 checkupdates+aur | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'} #${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}$font
+${voffset -5}${goto 20}${font Santana:size=14}  Root   ${fs_used /}/${fs_size /}${goto 300}Home   ${fs_used /home}/${fs_size /home}${goto 500}${execpi 3600 checkupdates+aur | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}${alignr}Gmail ${execi 60 ~/.Conky/gmail.sh} - Techie email ${execi 300 ~/.Conky/imap.pl}  #${execpi 3600 aptitude search "~U" | awk 'END { print (NR == 0 ? "System is up to date" : NR " package" (NR > 1 ? "s" : "") " need " (NR < 1 ? "s" : "") "updating "); }'}
 #####
 ${voffset 130}${goto 130}${font Santana:size=24}${time %H:%M}${voffset -10}${font Santana:size=10}${font}
-${voffset -0}${goto 268}${hr 2}${font}
+${voffset -0}${goto 275}${hr 2}${font}
 ${font Santana:size=14}${voffset -110}${goto 360}BATTERY   ${battery BAT0}  
 ${font Santana:size=14}${goto 360}AC adapter: $acpiacadapter
 ##########################################################

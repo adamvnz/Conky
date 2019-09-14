@@ -116,4 +116,4 @@ ${if_existing /proc/self/root/sys/devices/platform/PNP0C0A:00/firmware_node/powe
 #${color1}Running processes${alignr}${color8}${offset -9}${running_processes}
 #${color1}Load${alignr}${color8}${loadavg 1}
 ####################################################################################################
-]]
+ ]]

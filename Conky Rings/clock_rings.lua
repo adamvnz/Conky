@@ -33,7 +33,7 @@ settings_table = {
 	{
 		name='cpu',
 		arg='cpu1',
-		max=100,
+		max=50,
 		bg_colour=0xffffff,
 		bg_alpha=0.2,
 		fg_colour=0x1874cd,

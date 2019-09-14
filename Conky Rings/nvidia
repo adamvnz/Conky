@@ -98,7 +98,7 @@ conky.config = {
 conky.text = [[
 ${if_existing /proc/driver/nvidia/version}${font Santana:size=14}N V I D I A  ${font} ${alignr}${execp  nvidia-smi --query-supported-clocks=gpu_name --format=csv,noheader}${font}
 ${font Santana:size=12}${stippled_hr}${font}
-#${offset 30}Fan Speed ${alignr}${execi 60 nvidia-settings -q [fan:0]/GPUCurrentFanSpeed -t} %
+#Fan Speed ${alignr}${execi 60 nvidia-settings -q [fan:1]/GPUCurrentFanSpeed -t} %
 ${color1}GPU Utilization: ${color8}$alignr${nvidia gpuutil} % ${nvidiagraph gpuutil 30,135 ffffff F1544B -t}
 ${color1}${voffset -5}GPU Temp ${color8}${alignr}${execi 60 nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader} °C
 ${color1}GPU Clock ${color8}${alignr}${execi 60 nvidia-settings -q GPUCurrentClockFreqs | grep -m 1 Attribute | awk '{print $4}' | sed -e 's/\.//' | cut -d, -f1} MHz
@@ -111,4 +111,5 @@ ${color1}GPU VRAM: ${color8}$alignr${nvidia memused}MiB/${nvidia memmax}MiB
 ${voffset -40}${color8}${font}
 #${color1}GPU Processes:${color8}${execi 1 gpustat -cpu | awk -F '|' '/^.[0-9]+/{print$NF}' | tr ' ' '\n' | tr : '\t'}
 ${else}${voffset -20}${color8}${font}${endif}
+
 ]]
